@@ -1,0 +1,26 @@
+ul.todo-list {
+    margin: 5px;
+    padding: 0;
+    border: 5px solid #3c3c3c;
+    width: 30%;
+}
+
+ul.todo-list li {
+    padding: 10px;
+    background-color: #f1f1f1;
+    list-style-type: none;
+    border-bottom: 5px solid #3c3c3c;
+}
+
+ul.todo-list li:last-child {
+    border-bottom: none;
+}
+
+ul.todo-list li.done {
+    background-color: #ccc;
+    text-decoration: line-through;
+}
+
+ul.todo-list li:hover {
+    background-color: blue;
+}
