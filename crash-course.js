@@ -57,7 +57,9 @@ var friendName = otherVariable.friends[0].name;
 
 // Addition ( + )
 var sum = 6 + 9;
-var concat = "Hello " + "world!";
+var name = 'john';
+var message1 = 'Hello ' + 'world!';
+var message2 = 'Hello ' + name;
 
 // Subtraction, Multiplication, Division  	-, *, /
 var substract = 9 - 3;
@@ -114,7 +116,7 @@ if (accountIsBlocked) {
 }
 
 // Switch
-var currentState = 'Sold';
+var currentState = 'SoldOut';
 switch (currentState) {
     case 'Discontinued':
         // show a disabled buy button.
@@ -139,11 +141,12 @@ var items = [23, 4, 3, 12, 23, 34, 54];
 var accountBalance = 120;
 var total = 0;
 var itemsThatCanBuy = [];
+var i = 0;
 while (total < accountBalance) {
     total = total + items[i];
-    itemsThatCanBuy.push(items[i])
+    itemsThatCanBuy.push(items[i]);
     i++;
-    if (i > items.length) {
+    if (i >= items.length) {
         break;
     }
 }
@@ -187,10 +190,8 @@ tvShows.push({
 });
 
 var amountOfShows = tvShows.length;
-var commaSeparatedShows = tvShows.join(', ');
-
 var allEpisodes;
-tvShows.forEach(tvShow => {
+tvShows.forEach((tvShow) => {
     allEpisodes = allEpisodes + tvShow.episodes;
 });
 
@@ -198,14 +199,17 @@ var spanifiedShows = tvShows.map(tvShow => {
     return '<span>' + tvShow.name + '</span> - <span>' + tvShow.episodes + '</span>' ;
 });
 
+var commaSeparatedShows = tvShows.map(tvShow => tvShow.name).join(', ');
+
 var allEpisodes = tvShows.reduce((acc, tvShow) => acc + tvShow.episodes, 0);
 
 var onlyShortSeries = tvShows.filter(tvShow => tvShow.episodes < 100);
 
-var myFavourite = tvShows
+var myFavouriteShowNames = tvShows
     .filter(tvShow => tvShow.episodes < 70)
-    .pop()
-    .name;
+    .sort((a, b) => a.episodes - b.episodes)
+    .map(tvShow => tvShow.name)
+    .join(', ');
 
 // DOM - Element
 
