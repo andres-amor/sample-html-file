@@ -196,7 +196,7 @@ tvShows.forEach((tvShow) => {
 });
 
 var spanifiedShows = tvShows.map(tvShow => {
-    return '<span>' + tvShow.name + '</span> - <span>' + tvShow.episodes + '</span>' ;
+    return '<span>' + tvShow.name + '</span> - <span>' + tvShow.episodes + '</span>';
 });
 
 var commaSeparatedShows = tvShows.map(tvShow => tvShow.name).join(', ');
@@ -230,3 +230,58 @@ newCard.appendChild(newCardText);
 // will append #animals .list div this new div: 
 // <div class="available-animal" id="animal24">Sparkles</div>
 cards.appendChild(newCard);
+
+
+
+const delayASecondAndCount = () => {
+    var listener = () => {
+        count++;
+        countBox.textContent = count;
+        delayASecondAndCount();
+    };
+
+
+    setTimeout(listener, 1000);
+}
+
+
+class Animal {
+    constructor(name, gender, legs) {
+        this.name = name;
+        this.gender = gender;
+        this.legs = legs;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a noise.`);
+    }
+
+    isMale() {
+        return (this.gender === 'M');
+    }
+
+    isFemale() {
+        return (this.gender === 'F');
+    }
+}
+
+var myPet = new Animal('Johnny', 'M', 2);
+myPet.speak(); // Johnny makes a noise.
+console.log(myPet.isMale()); // true
+console.log(myPet.legs); // 2
+
+class Dog extends Animal {
+    constructor(name, gender) {
+        // super calls the constructor of the parent Class.
+        super(name, gender, 4); 
+    }
+
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+var myOtherPet = new Dog('Lola', 'F');
+myOtherPet.speak(); // Lola barks.
+console.log(myOtherPet.isMale()); // false 
+console.log(myOtherPet.legs); // 4
